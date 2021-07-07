@@ -1,0 +1,21 @@
+{
+    "name": "samshal/nirsal-agc-modules",
+    "type": "project",
+    "authors": [
+        {
+            "name": "samshal",
+            "email": "samueladeshina73@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.3",
+        "samshal/emmet-blue": "dev-master"
+    },
+    "autoload":{
+        "psr-4":{
+            "Skylab\\NirsalAgc\\Plugins\\":"./src"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable":true
+}
