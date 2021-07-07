@@ -54,7 +54,7 @@ class XHttpRequest {
 		$this->headers = [
 			"Authorization"=>$this->authorization,
 			"SIGNATURE"=>$this->signature,
-			"SIGNATURE_METHOD"=>$this->signatureMethod,
+			"SIGNATURE_METH"=>$this->signatureMethod,
 			"Content-Type"=>$this->contentType,
 			"Accept"=>$this->acceptType
 		];
@@ -73,7 +73,7 @@ class XHttpRequest {
 		$response = [
 			"status_code"=>$request->status_code,
 			"headers"=>$request->headers,
-			"body"=>$decryptedBody
+			"body"=>json_decode($decryptedBody)
 		];
 
 		return $response;
