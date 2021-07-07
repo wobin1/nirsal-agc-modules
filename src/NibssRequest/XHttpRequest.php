@@ -37,35 +37,38 @@ class XHttpRequest {
 	private $headers = [];
 
 	public function __construct(){
-		$username = Constant::getGlobals()["nibss-server-username"];
-		$password = Constant::getGlobals()["nibss-server-password"];
+		$globals = Constant::getGlobals();
 
-		self::$iv = Constant::getGlobals()["nibss-server-iv"];
-		self::$key = Constant::getGlobals()["nibss-server-key"];
+		$username = $globals["nibss-server-username"];
+		$password = $globals["nibss-server-password"];
 
-		self::$cloudUrl = Constant::getGlobals()["nibss-server-url"];
-		self::$authorization = base64_encode($username.":".$password);
-		self::$signature = hash("sha256", $username.date("Ymd").$password);
+		$this->iv = $globals["nibss-server-iv"];
+		$this->key = $globals["nibss-server-key"];
+
+		$this->cloudUrl = $globals["nibss-server-url"];
+
+		$this->authorization = base64_encode($username.":".$password);
+		$this->signature = hash("sha256", $username.date("Ymd").$password);
 
 
-		self::$headers = [
-			"Authorization"=>self::$authorization,
-			"SIGNATURE"=>self::$signature;
-			"SIGNATURE_METHOD"=>self::$signatureMethod,
-			"Content-Type"=>self::$contentType,
-			"Accept"=>self::$acceptType
+		$this->headers = [
+			"Authorization"=>$this->authorization,
+			"SIGNATURE"=>$this->signature,
+			"SIGNATURE_METHOD"=>$this->signatureMethod,
+			"Content-Type"=>$this->contentType,
+			"Accept"=>$this->acceptType
 		];
 
 	}
 
 	public function httpPostRequest($url, $data){
-		$encryptedPayload = AesCipher::encrypt(self::$key, self::$iv, json_encode($data));
+		$encryptedPayload = AesCipher::encrypt($this->key, $this->iv, json_encode($data));
 
-		$endpoint = self::$cloudUrl.$url;
+		$endpoint = $this->cloudUrl.$url;
 
-		$request = HTTPRequest::post($endpoint, $encryptedPayload, self::$headers);
-
-		$decryptedBody = AesCipher::decrypt($key, $iv, $request->body);
+		$request = HTTPRequest::post($endpoint, $encryptedPayload, $this->headers);
+		
+		$decryptedBody = AesCipher::decrypt($this->key, $this->iv, $request->body);
 
 		$response = [
 			"status_code"=>$request->status_code,

@@ -48,7 +48,6 @@ class AesCipher {
     * @return encrypted data in base64 encoding with iv attached at end after a :
     */
     static function encrypt($key, $iv, $data) {
-
         $encodedEncryptedData = openssl_encrypt($data, AesCipher::OPENSSL_CIPHER_NAME, AesCipher::fixKey($key), OPENSSL_RAW_DATA, $iv);
 
         return bin2hex($encodedEncryptedData);
@@ -63,7 +62,12 @@ class AesCipher {
     */
     static function decrypt($key, $iv, $data) {
         $encrypted = hex2bin($data);
-        $decryptedData = openssl_decrypt($encrypted, AesCipher::OPENSSL_CIPHER_NAME, AesCipher::fixKey($key), OPENSSL_RAW_DATA, $iv);
+        if ($encrypted){
+            $decryptedData = openssl_decrypt($encrypted, AesCipher::OPENSSL_CIPHER_NAME, AesCipher::fixKey($key), OPENSSL_RAW_DATA, $iv);
+        }
+        else {
+            $decryptedData = $data;
+        }
 
         return $decryptedData;
     }
