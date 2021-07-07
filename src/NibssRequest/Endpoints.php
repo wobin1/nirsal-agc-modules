@@ -38,16 +38,34 @@ class Endpoints
 	
 	public static function verifyMultipleBvn(array $data)
 	{
+		$request = new XHttpRequest();
+		$response = $request->httpPostRequest("/VerifyMultipleBVN", [
+			"BVNS"=>$data["bvns"]
+		]);
+
+		return $response;
 		
 	}
 
 	public static function getSingleBvn(array $data)
 	{
+		$request = new XHttpRequest();
+		$response = $request->httpPostRequest("/GetSingleBVN", [
+			"BVN"=>$data["bvn"]
+		]);
+
+		return $response;
 		
 	}
 	
 	public static function getMultipleBvn(array $data)
 	{
+		$request = new XHttpRequest();
+		$response = $request->httpPostRequest("/GetMultipleBVN", [
+			"BVNS"=>$data["bvns"]
+		]);
+
+		return $response;
 		
 	}
 }
