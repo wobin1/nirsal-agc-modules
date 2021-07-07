@@ -6,7 +6,7 @@
  * This file is part of the NIRSAL AGC project by Skylab, please read the license document
  * available in the root level of the project
  */
-namespace Skylab\Nirsal\NibssRequest;
+namespace Skylab\NirsalAgc\Plugins\NibssRequest;
 
 use EmmetBlue\Core\Factory\DatabaseConnectionFactory as DBConnectionFactory;
 use EmmetBlue\Core\Builder\QueryBuilder\QueryBuilder as QB;
