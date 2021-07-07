@@ -29,7 +29,7 @@ class Endpoints
 	public static function verifySingleBvn(array $data)
 	{
 		$request = new XHttpRequest();
-		$response = $request->httpPostRequest("/VerifySingleBvn", [
+		$response = $request->httpPostRequest("/VerifySingleBVN", [
 			"BVN"=>$data["bvn"]
 		]);
 
