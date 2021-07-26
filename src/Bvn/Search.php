@@ -11,7 +11,7 @@ namespace Skylab\NirsalAgc\Plugins\Bvn;
 use EmmetBlue\Core\Factory\DatabaseConnectionFactory as DBConnectionFactory;
 use EmmetBlue\Core\Builder\QueryBuilder\QueryBuilder as QB;
 
-use Skylab\NirsalAgc\Plugins\NibssRequest\Endpoint as NibssEndpoint;
+use Skylab\NirsalAgc\Plugins\NibssRequest\Endpoints as NibssEndpoint;
 
 /**
  * class Search.
