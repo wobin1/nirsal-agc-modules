@@ -20,7 +20,7 @@ CREATE TABLE bvn_retrieved_bvn_data (
 	bvn_data_id INT PRIMARY KEY AUTO_INCREMENT,
 	bvn VARCHAR(13) NOT NULL,
 	data_field VARCHAR(50) NOT NULL,
-	data_value VARCHAR(MAX),
+	data_value VARCHAR(65532),
 	CONSTRAINT fk_retrievedBvnData_bvn_retrievedBvns_bvn
 		FOREIGN KEY (bvn) REFERENCES bvn_retrieved_bvns (bvn) ON UPDATE CASCADE ON DELETE CASCADE
 );
