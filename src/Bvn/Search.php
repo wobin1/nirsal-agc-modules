@@ -25,6 +25,7 @@ class Search
 {
 	private static function interceptRequest(array $data) {
 		$bvnList = $data["bvnList"];
+		$userId = (int)$data["userId"];
 
 		$forNibss = [];
 		$notForNibss = [];
@@ -37,12 +38,12 @@ class Search
 
 		$forNibss = array_diff($bvnList, $notForNibss);
 
-		$searchResponse = self::retrieveFromNibss($forNibss);
+		$searchResponse = self::retrieveFromNibss($forNibss, $userId);
 
 		return $searchResponse;
 	}
 
-	private static function retrieveFromNibss(array $bvnList) {
+	private static function retrieveFromNibss(array $bvnList, int $userId) {
 		$bvnListAsString = implode(",", $bvnList);
 		$nibssResponse = NibssEndpoint::getMultipleBvn(["bvns"=>$bvnListAsString]);
 		$response = [];
@@ -51,7 +52,7 @@ class Search
 			if ($resp["ResponseCode"] == "00"){ //means bvn search returned valid data
 				unset($resp["ResponseCode"], $resp["BVN"]);
 
-				$response[$bvn] = self::indexBvnData($bvn, $resp);
+				$response[$bvn] = self::indexBvnData($bvn, $userId, $resp);
 			}
 			else {
 				$response[$bvn] = $resp;
