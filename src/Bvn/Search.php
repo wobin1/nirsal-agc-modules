@@ -69,6 +69,7 @@ class Search
 	}
 
 	private static function getLocalBvn(array $bvnList) {
+		array_walk($bvnList, function(&$x) {$x = "'$x'";});
 		$bvnListAsString = implode(",", $bvnList);
 		$query = "SELECT bvn FROM bvn_retrieved_bvns WHERE bvn IN ($bvnListAsString)";
 
@@ -107,7 +108,10 @@ class Search
 			}
 		}
 
+		array_walk($validBvns, function(&$x) {$x = "'$x'";});
 		$bvnListAsString = implode(",", $validBvns);
+
+		array_walk($requestedFields, function(&$x) {$x = "'$x'";});
 		$fieldsAsString = implode(",", $requestedFields);
 
 		$query = "SELECT a.bvn, a.data_field, a.data_value FROM bvn_retrieved_bvn_data a WHERE (a.data_field IN ($fieldsAsString)) AND (a.bvn IN $bvnListAsString)";
