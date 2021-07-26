@@ -10,7 +10,7 @@ CREATE TABLE users (
 CREATE TABLE bvn_retrieved_bvns (
 	bvn_id INT PRIMARY KEY AUTO_INCREMENT,
 	bvn VARCHAR(13) NOT NULL UNIQUE,
-	date_last_retrieved DATETIME NOT NULL DEFAULT NOW(),
+	date_last_retrieved TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	retrieved_by INT,
 	CONSTRAINT fk_retrievedBvns_retrievedBy_users_userId
 		FOREIGN KEY (retrieved_by) REFERENCES users (user_id) ON UPDATE CASCADE ON DELETE SET NULL
@@ -29,7 +29,7 @@ CREATE TABLE logs_bvn_search (
 	search_id INT PRIMARY KEY AUTO_INCREMENT,
 	searched_bvn VARCHAR(13) NOT NULL,
 	user_id INT,
-	search_date DATETIME NOT NULL DEFAULT NOW(),
+	search_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	CONSTRAINT fk_bvnSearch_userId_users_userId
 		FOREIGN KEY (user_id) REFERENCES users (user_id) ON UPDATE CASCADE ON DELETE SET NULL
 );
