@@ -1,6 +1,3 @@
-CREATE DATABASE nirsal_agc_app;
-GO;
-
 CREATE TABLE users (
 	user_id INT PRIMARY KEY AUTO_INCREMENT,
 	user_bvn VARCHAR(13) UNIQUE,

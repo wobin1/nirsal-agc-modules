@@ -70,13 +70,14 @@ class Search
 		return $result;
 	}
 
-	private static function indexBvnData(string $bvn, array $bvnData){
+	private static function indexBvnData(string $bvn, int $userId, array $bvnData){
 		$inserts = [];
 		foreach($bvnData as $field => $value){
 			$inserts[] = "('$bvn', $field', '$value')";
 		}
 
-		$query = "INSERT INTO bvn_retrieved_bvns (bvn, data_field, data_value) VALUES ".implode(",", $inserts);
+		$query = "INSERT INTO bvn_retrieved_bvns (bvn, retrieved_by) VALUES ('$bvn', '$userId');";
+		$query .= "INSERT INTO bvn_retrieved_bvn_data (bvn, data_field, data_value) VALUES ".implode(",", $inserts);
 		$response = DBConnectionFactory::getConnection()->exec($query);
 
 		return $response;
