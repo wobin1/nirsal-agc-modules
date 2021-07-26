@@ -114,7 +114,7 @@ class Search
 		array_walk($requestedFields, function(&$x) {$x = "'$x'";});
 		$fieldsAsString = implode(",", $requestedFields);
 
-		$query = "SELECT a.bvn, a.data_field, a.data_value FROM bvn_retrieved_bvn_data a WHERE (a.data_field IN ($fieldsAsString)) AND (a.bvn IN $bvnListAsString)";
+		$query = "SELECT a.bvn, a.data_field, a.data_value FROM bvn_retrieved_bvn_data a WHERE (a.data_field IN ($fieldsAsString)) AND (a.bvn IN ($bvnListAsString))";
 
 		$queryResult = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
