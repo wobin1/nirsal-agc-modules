@@ -35,14 +35,14 @@ class Search
 		$searchResponse = [];
 
 		foreach ($localBvn as $bvn) {
-			$notForNibss = $bvn["bvn"];
+			$notForNibss[] = $bvn["bvn"];
 			$searchResponse[$bvn["bvn"]] = true;
 		}
 
 		$forNibss = array_diff($bvnList, $notForNibss);
 
 		if (count($forNibss) > 0){
-			$searchResponse = array_merge($searchResponse, self::retrieveFromNibss($forNibss, $userId));
+			$searchResponse = $searchResponse + self::retrieveFromNibss($forNibss, $userId);
 		}
 
 		return $searchResponse;
@@ -94,13 +94,17 @@ class Search
 	public static function getBvnData(array $data)
 	{
 		$presearchData = self::interceptRequest($data);
-		$requestedFields = $data["fields"];
+		$requestedFields = $data["fields"] ?? [];
+
+		if (count($requestedFields) < 1){
+			$requestedFields[] = "NameOnCard";
+		}
 
 		$response = [];
 		$validBvns = [];
 
 		foreach ($presearchData as $bvn=>$resp) {
-			if ($resp == true) {
+			if ($resp === true) {
 				$validBvns[] = $bvn;
 			}
 			else {
