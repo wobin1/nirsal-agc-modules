@@ -57,8 +57,9 @@ class Search
 			$bvn = $resp["BVN"];
 			if ($resp["ResponseCode"] == "00"){ //means bvn search returned valid data
 				unset($resp["ResponseCode"], $resp["BVN"]);
-
-				$response[$bvn] = self::indexBvnData($bvn, $userId, $resp);
+				
+				self::indexBvnData($bvn, $userId, $resp);
+				$response[$bvn] = true;
 			}
 			else {
 				$response[$bvn] = $resp;
