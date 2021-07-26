@@ -32,13 +32,18 @@ class Search
 
 		$localBvn = self::getLocalBvn($bvnList);
 
+		$searchResponse = [];
+
 		foreach ($localBvn as $bvn) {
 			$notForNibss = $bvn["bvn"];
+			$searchResponse[$bvn["bvn"]] = true;
 		}
 
 		$forNibss = array_diff($bvnList, $notForNibss);
 
-		$searchResponse = self::retrieveFromNibss($forNibss, $userId);
+		if (count($forNibss) > 0){
+			$searchResponse = array_merge($searchResponse, self::retrieveFromNibss($forNibss, $userId));
+		}
 
 		return $searchResponse;
 	}
@@ -48,7 +53,8 @@ class Search
 		$nibssResponse = NibssEndpoint::getMultipleBvn(["bvns"=>$bvnListAsString]);
 		$response = [];
 
-		foreach($nibssResponse as $bvn => $resp){
+		foreach($nibssResponse as $resp){
+			$bvn = $resp["BVN"];
 			if ($resp["ResponseCode"] == "00"){ //means bvn search returned valid data
 				unset($resp["ResponseCode"], $resp["BVN"]);
 
@@ -74,7 +80,7 @@ class Search
 	private static function indexBvnData(string $bvn, int $userId, array $bvnData){
 		$inserts = [];
 		foreach($bvnData as $field => $value){
-			$inserts[] = "('$bvn', $field', '$value')";
+			$inserts[] = "('$bvn', '$field', '$value')";
 		}
 
 		$query = "INSERT INTO bvn_retrieved_bvns (bvn, retrieved_by) VALUES ('$bvn', '$userId');";
