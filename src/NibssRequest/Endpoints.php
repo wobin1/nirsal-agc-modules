@@ -65,6 +65,14 @@ class Endpoints
 			"BVNS"=>$data["bvns"]
 		]);
 
+		if (isset($response["status_code"]) && $response["status_code"] == "200"){
+			$response = $response["body"]["ValidationResponses"];
+		}
+		else {
+			//handle this error.
+		}
+
+
 		return $response;
 		
 	}

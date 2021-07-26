@@ -73,7 +73,7 @@ class XHttpRequest {
 		$response = [
 			"status_code"=>$request->status_code,
 			"headers"=>$request->headers,
-			"body"=>json_decode($decryptedBody)
+			"body"=>json_decode($decryptedBody, true)
 		];
 
 		return $response;
