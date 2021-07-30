@@ -57,7 +57,7 @@ class Search
 			$bvn = $resp["BVN"];
 			if ($resp["ResponseCode"] == "00"){ //means bvn search returned valid data
 				unset($resp["ResponseCode"], $resp["BVN"]);
-				
+
 				self::indexBvnData($bvn, $userId, $resp);
 				$response[$bvn] = true;
 			}
@@ -82,6 +82,7 @@ class Search
 	private static function indexBvnData(string $bvn, int $userId, array $bvnData){
 		$inserts = [];
 		foreach($bvnData as $field => $value){
+			$value = htmlspecialchars($value, ENT_QUOTES);
 			$inserts[] = "('$bvn', '$field', '$value')";
 		}
 
