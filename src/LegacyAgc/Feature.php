@@ -52,6 +52,10 @@ class Feature
         	"fields"=>$fields
         ]);
 
-        return $search;
+
+        return [
+        	"legacyRecord"=>$info,
+        	"bvnData"=>$search
+        ];
 	}
 }
