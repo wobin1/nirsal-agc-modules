@@ -25,6 +25,8 @@ class Feature
 {
 	public static function viewByPlotId(array $data=[]){
 		$id = $data["plot_id"] ?? 0;
+		$user = $data["node"] ?? 0;
+		$fields = $data["fields"] ?? [];
 
 		$hash = crc32($id);
 
@@ -34,6 +36,22 @@ class Feature
 
 		$info = $db->findById($hash);
 
-		return $info;
+		if (is_null($info)){
+            throw new \Exception("Unrecognized Plot Id");
+        }
+
+        if ($user == 0){
+        	throw new \Exception("Invalid Node");
+        }
+
+        $bvn = $info["plot_owner_bvn"];
+
+        $search = \Skylab\NirsalAgc\Plugins\Bvn\Search::getBvnData([
+        	"bvnList"=>[$bvn],
+        	"userId"=>$user,
+        	"fields"=>$fields
+        ]);
+
+        return $search;
 	}
 }
