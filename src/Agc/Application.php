@@ -27,7 +27,12 @@ class Application
 		$user = $data["userId"];
 
 		$query = "INSERT INTO agc_application (user_id) VALUES ($user)";
-		$result = DBConnectionFactory::getConnection()->exec($query);
+		$db = DBConnectionFactory::getConnection();
+		$result = $db->exec($query);
+
+		if ($result){
+			return ["agcId"=>$db->lastInsertId()];
+		}
 
 		return $result;
 	}
@@ -38,7 +43,12 @@ class Application
 		$stageStatus = -1;
 
 		$query = "INSERT INTO agc_application_stage (application_id, stage_name, stage_status) VALUES ($applicationId, '$stage', $stageStatus)";
-		$result = DBConnectionFactory::getConnection()->exec($query);
+		$db = DBConnectionFactory::getConnection();
+		$result = $db->exec($query);
+
+		if ($result){
+			return ["stageId"=>$db->lastInsertId()];
+		}
 
 		return $result;
 	}
