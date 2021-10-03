@@ -69,10 +69,15 @@ class Application
 	}
 
 	public static function getStages(int $agcId){
+		$stages = [];
 		$query = "SELECT * FROM agc_application_stage WHERE application_id = $agcId";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
-		return $result;
+		foreach($result as $stage){
+			$stages[$stage["stageName"]] = $stage;
+		}
+
+		return $stages;
 	}
 
 	public static function getStage(array $data){
