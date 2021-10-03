@@ -9,7 +9,8 @@
     ],
     "require": {
         "guzzlehttp/guzzle": "^7.3",
-        "samshal/emmet-blue": "dev-master"
+        "samshal/emmet-blue": "dev-master",
+        "rakibtg/sleekdb": "^2.12"
     },
     "autoload":{
         "psr-4":{
