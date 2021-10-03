@@ -68,6 +68,19 @@ class Application
 		return $result;
 	}
 
+	public static function activateNextStage(array $data){
+		$stageId = $data["completedStageId"];
+		$nextStage = $data["nextStage"];
+		$agcId = $data["agcId"];
+
+		$complete = self::completeStage((int)$stageId);
+		$start = self::startStage([
+			"agcId"=>$agcId,
+			"stage"=>$nextStage
+		]);
+
+		return [$complete, $start];
+	}
 	public static function getStages(int $agcId){
 		$stages = [];
 		$query = "SELECT * FROM agc_application_stage WHERE application_id = $agcId";
