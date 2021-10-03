@@ -98,14 +98,14 @@ class Application
 		foreach ($leaders as $leader){
 			$leaderData = [
 				$agcId, 
-				QB::wrapString($leader["bvn"] ?? '', ""), 
-				QB::wrapString($leader["type"] ?? '', ""),
-				QB::wrapString($leader["state"] ?? '', ""),
-				QB::wrapString($leader["lga"] ?? '', ""),
-				QB::wrapString($leader["address"] ?? '', ""),
-				QB::wrapString($leader["academicQualification"] ?? '', ""),
-				QB::wrapString($leader["workExperience"] ?? '', ""),
-				QB::wrapString(json_encode($leader["questionnaire"] ?? ''), "")
+				QB::wrapString($leader["bvn"] ?? '', "'"), 
+				QB::wrapString($leader["type"] ?? '', "'"),
+				QB::wrapString($leader["state"] ?? '', "'"),
+				QB::wrapString($leader["lga"] ?? '', "'"),
+				QB::wrapString($leader["address"] ?? '', "'"),
+				QB::wrapString($leader["academicQualification"] ?? '', "'"),
+				QB::wrapString($leader["workExperience"] ?? '', "'"),
+				QB::wrapString(json_encode($leader["questionnaire"] ?? ''), "'")
 			];
 
 			$sqlValues[] = implode(",", $leaderData);
