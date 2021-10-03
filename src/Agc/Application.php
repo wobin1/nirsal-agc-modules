@@ -31,7 +31,13 @@ class Application
 		$result = $db->exec($query);
 
 		if ($result){
-			return ["agcId"=>$db->lastInsertId()];
+			$agcId = $db->lastInsertId();
+			$termsStage = self::startStage([
+				"agcId"=>$agcId,
+				"stage"=>"T&C"
+			]);
+
+			return ["agcId"=>$agcId, "termsStage"=>$termsStage];
 		}
 
 		return $result;
