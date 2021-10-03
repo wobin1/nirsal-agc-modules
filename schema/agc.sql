@@ -39,7 +39,7 @@ CREATE TABLE agc_application_kyl_data (
 	contact_address VARCHAR(50),
 	academic_qualification VARCHAR(50),
 	work_experience VARCHAR(50),
-	leader_questionnaire JSON DEFAULT NULL,
+	leader_questionnaire TEXT DEFAULT NULL,
 
 	UNIQUE (application_id, leader_bvn),
 	FOREIGN KEY (application_id) REFERENCES agc_application (application_id) ON UPDATE CASCADE ON DELETE CASCADE
