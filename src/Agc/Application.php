@@ -74,7 +74,7 @@ class Application
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		foreach($result as $stage){
-			$stages[$stage["stageName"]] = $stage;
+			$stages[$stage["stage_name"]] = $stage;
 		}
 
 		return $stages;
