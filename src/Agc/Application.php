@@ -150,14 +150,14 @@ class Application
 		return $result;		
 	}
 
-	public static kycBvnValidationComplete(int $agcId){
+	public static function  kycBvnValidationComplete(int $agcId){
 		$query = "UPDATE agc_application_kyc_data SET is_bvn_validated = 1 WHERE application_id = $agcId";
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
 		return $result;
 	}
 
-	public static kycCrcComplete(int $agcId){
+	public static function kycCrcComplete(int $agcId){
 		$query = "UPDATE agc_application_kyc_data SET is_bvn_validated = 1 WHERE application_id = $agcId";
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
