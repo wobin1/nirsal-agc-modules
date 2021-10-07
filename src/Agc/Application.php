@@ -81,6 +81,7 @@ class Application
 
 		return [$complete, $start];
 	}
+
 	public static function getStages(int $agcId){
 		$stages = [];
 		$query = "SELECT * FROM agc_application_stage WHERE application_id = $agcId";
@@ -126,6 +127,38 @@ class Application
 
 		$query = "INSERT INTO agc_application_kyl_data (application_id, leader_bvn, kyl_leader_type, residential_state, residential_lga, contact_address, academic_qualification, work_experience, leader_questionnaire) VALUES ".implode($sqlValues, ",");
 
+		$result = DBConnectionFactory::getConnection()->exec($query);
+
+		return $result;
+	}
+
+	public static function newKycData(array $data){
+		$agcId = $data["agcId"];
+		$agcName = $data["agcName"];
+		$commodityCategory = $data["commodityCategory"];
+		$commodityType = $data["commodityType"];
+		$totalLandSize = $data["totalLandSize"];
+		$totalFarmers = $data["totalFarmers"];
+		$state = $data["agcState"];
+		$lga = $data["agcLga"];
+		$city = $data["agcCity"];
+
+		$query = "INSERT INTO agc_application_kyc_data (application_id, agc_name, commodity_category, commodity_type, total_land_size_hectares, total_farmers, agc_state, agc_lga, agc_city) VALUES ($agcId, '$agcName', '$commodityCategory', '$commodityType', $totalLandSize, $totalFarmers, '$state', '$lga', '$city')";
+
+		$result = DBConnectionFactory::getConnection()->exec($query);
+
+		return $result;		
+	}
+
+	public static kycBvnValidationComplete(int $agcId){
+		$query = "UPDATE agc_application_kyc_data SET is_bvn_validated = 1 WHERE application_id = $agcId";
+		$result = DBConnectionFactory::getConnection()->exec($query);
+
+		return $result;
+	}
+
+	public static kycCrcComplete(int $agcId){
+		$query = "UPDATE agc_application_kyc_data SET is_bvn_validated = 1 WHERE application_id = $agcId";
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
 		return $result;
