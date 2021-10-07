@@ -163,4 +163,27 @@ class Application
 
 		return $result;
 	}
+
+	public static function addKycFarmers(array $data){
+		$agcId = $data["agcId"];
+		$farmers = $data["farmers"] ?? [];
+
+		$sqlValues = [];
+		foreach($farmers as $farmer){
+			$farmerData =  [
+				$agcId, 
+				QB::wrapString($farmer["bvn"] ?? '', "'")
+			];
+
+			$sqlValues[] = "(".implode(",", $farmerData).")";
+		}
+
+		$query = "INSERT INTO agc_application_kyc_farmers (application_id, farmer_bvn) VALUES ".implode($sqlValues, ",");
+
+		$result = DBConnectionFactory::getConnection()->exec($query);
+
+		self::kycBvnValidationComplete((int)$agcId);
+
+		return $result;
+	}
 }
