@@ -220,8 +220,8 @@ class Application
 	  $agcName = $data["agcName"];
       $verificationDate = $data["verificationDate"];
       $verificationOfficerName = $data["verificationOfficerName"];
-      $state : $data["state"];
-      $lga : $data["lga"];
+      $state = $data["state"];
+      $lga = $data["lga"];
       $farmlandLocation = $data["farmlandLocation"];
       $latitude = $data["latitude"];
       $longitude = $data["longitude"];
