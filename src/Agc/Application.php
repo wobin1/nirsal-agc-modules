@@ -239,7 +239,7 @@ class Application
       $visualAssesment = $data["visualAssesment"];
       $availableWaterResources = $data["availableWaterResources"];
       $landmarks = $data["landmarks"];
-      $proximityToNonAgricLand :$data["proximityToNonAgricLand"];
+      $proximityToNonAgricLand = $data["proximityToNonAgricLand"];
       $landFeatures = $data["landFeatures"];
       $siteAssessibilty = $data["siteAssessibilty"];
       $agriculturalPrograms = $data["agriculturalPrograms"];
