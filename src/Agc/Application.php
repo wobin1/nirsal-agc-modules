@@ -229,20 +229,20 @@ class Application
 	// 	return $result;			
 	// }
 
-	public static function getKycFarmersData(){
-		$query = "SELECT * FROM agc_application_kyc_farmers_data";
-		$result = DBConnectionFactory::getConnection()->exec($query);
+	// public static function getKycFarmersData(){
+	// 	$query = "SELECT * FROM agc_application_kyc_farmers_data";
+	// 	$result = DBConnectionFactory::getConnection()->exec($query);
 
-		return $result;
-	}
+	// 	return $result;
+	// }
 
 
-	public static function getUsersApplication(int $userId){
-		$query = "SELECT * FROM agc_application where user_id = $userId";
-		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+	// public static function getUsersApplication(int $userId){
+	// 	$query = "SELECT * FROM agc_application where user_id = $userId";
+	// 	$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
-		return $result;
-	}
+	// 	return $result;
+	// }
 
 	public static function getAgcFarmers(){
 		$query = "SELECT * FROM  agc_application_kyc_farmers_data";
