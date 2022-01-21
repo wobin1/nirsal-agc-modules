@@ -194,4 +194,67 @@ class Application
 		return $result;
 
 	}
+
+	public static function getUsersApplication(int $userId){
+		$query = "SELECT * FROM agc_application where application_id = $userId";
+		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+		return $result;
+	}
+
+	public static function getAgcFarmers(int $application_id){
+		$query = "SELECT * FROM  agc_application_kyc_farmers WHERE application_id = $application_id";
+		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+		return $result;
+	}
+
+	public static function kycCrcComplete(int $agcId, string $crcStatusNote){
+		$query = "UPDATE agc_application_kyc_farmers SET crc_status_note = $crcStatusNote WHERE application_id = $agcId";
+		$result = DBConnectionFactory::getConnection()->exec($query);
+
+		return $result;
+	}
+
+	public static function fieldVerification(array data){
+	  $agcName : $data["agcName"],
+      $verificationDate : $data["verificationDate"],
+      $verificationOfficerName : $data["verificationOfficerName"],
+      $state : $data["state"],
+      $lga : $data["lga"],
+      $farmlandLocation : $data["farmlandLocation"],
+      $latitude : $data["latitude"],
+      $longitude : $data["longitude"],
+      $proposedCrop : $data["proposedCrop"],
+      $proposedSeason : $data["proposedSeason"],
+      $recommendedPlantingDate : $data["recommendedPlantingDate"],
+      $plantingDeadline : $data["plantingDeadline"],
+      $verifiedLandSize : $data["verifiedLandSize"],
+      $isLandCountigous : $data["isLandCountigous"], 
+      $areBoundariesDemacated : $data["areBoundariesDemacated"],
+      $isLandPercelized : $data["isLandPercelized"],
+      $describeFieldType : $data["describeFieldType"],
+      $describeLandTopography : $data["describeLandTopography"],
+      $isLandTractorAble : $data["isLandTractorAble"],
+      $visualAssesment : $data["visualAssesment"],
+      $availableWaterResources : $data["availableWaterResources"],
+      $landmarks : $data["landmarks"],
+      $proximityToNonAgricLand :$data["proximityToNonAgricLand"],
+      $landFeatures : $data["landFeatures"],
+      $siteAssessibilty : $data["siteAssessibilty"],
+      agriculturalPrograms : $data["agriculturalPrograms"],
+      existingCooperatives :$data["existingCooperatives"],
+      relevantInformation : $data["relevantInformation"],
+      challenges : $data["challenges"],
+      siteVisitation : $data["siteVisitation"],
+      pmroVerdict : $data["pmroVerdict"]
+
+      $query = "INSERT INTO field_verification (agcName, verificationDate, verificationOfficerName, state, lga, farmlandLocation, latitude, longitude, proposedCrop,proposedSeason, recommendedPlantingDate, plantingDeadline, verifiedLandSize, isLandCountigous, areBoundariesDemacated, isLandPercelized, describeFieldType, describeLandTopography, isLandTractorAble, visualAssesment, availableWaterResources, landmarks, proximityToNonAgricLand, landFeatures, siteAssessibilty, agriculturalPrograms, existingCooperatives, relevantInformation, challenges, siteVisitation,pmroVerdict ) VALUES ( '$agcName', $verificationDate, '$verificationOfficerName', '$state', '$lga', '$farmlandLocation', $latitude, $longitude, '$proposedCrop', '$proposedSeason', $recommendedPlantingDate, $plantingDeadline, '$verifiedLandSize', '$isLandCountigous', '$areBoundariesDemacated', '$isLandPercelized', '$describeFieldType', '$describeLandTopography', '$isLandTractorAble', '$visualAssesment', '$availableWaterResources', '$landmarks', '$proximityToNonAgricLand', '$landFeatures', '$siteAssessibilty', '$agriculturalPrograms', '$existingCooperatives', '$relevantInformation', '$challenges', '$siteVisitation','$pmroVerdict')"
+
+      $result = DBConnectionFactory::getConnection()->exec($query);
+
+      return $results
+	}
+
+	
 }
