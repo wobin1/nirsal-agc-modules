@@ -244,7 +244,7 @@ class Application
             $verifiedLandSize = $data["verifiedLandSize"];
             $isLandCountigous = $data["isLandCountigous"]; 
             $areBoundariesDemacated = $data["areBoundariesDemacated"];
-            $isLandPercelized = $data["isLandPercelized"];dir
+            $isLandPercelized = $data["isLandPercelized"];
             $describeFieldType = $data["describeFieldType"];
             $describeLandTopography = $data["describeLandTopography"];
             $isLandTractorAble = $data["isLandTractorAble"];
