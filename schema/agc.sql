@@ -143,6 +143,9 @@ CREATE TABLE field_verification(
 	challenges VARCHAR(100),
 	siteVisitation VARCHAR(100),
 	pmroVerdict VARCHAR(50),
-	field_verification_status SMALLINT DEFAULT 0
+	field_verification_status SMALLINT DEFAULT 0,
+
+
+	FOREIGN KEY (application_id) REFERENCES agc_application (application_id) ON UPDATE CASCADE ON DELETE CASCADE
 
 );
