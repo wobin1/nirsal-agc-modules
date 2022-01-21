@@ -193,7 +193,7 @@ class Application
 		$bvn = $data["bvn"];
 		$farmer_name = $data["name"];
 		$farmer_phone = $data["phoneNumber"];
-		$farmer_crc_status = $["crcStatus"];
+		$farmer_crc_status = $data["crcStatus"];
 		
 
 		$query = "INSERT INTO agc_application_kyc_farmers_data (application_id, famers_name, farmer_bvn, farmer_phone, crc_status) VALUES ($application_id, '$bvn', '$famers_name', '$farmer_phone', '$farmer_crc_status')";
