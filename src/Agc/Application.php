@@ -136,7 +136,7 @@ class Application
 		$agcId = $data["agcId"];
 		$agcName = $data["agcName"];
 		$commodityCategory = $data["commodityCategory"];
-		$commodityType = $data["commodityType"];
+		$commodityType = $data["crop"];
 		$totalLandSize = $data["agcCapacity"];
 		$totalFarmers = $data["agcTotalFarmers"];
 		$state = $data["agcLocationState"];
@@ -208,6 +208,8 @@ class Application
 
 		return $result;
 	}
+
+	
 
 	public static function fieldVerification(array $data){
 	      $agcName = $data["agcName"];
