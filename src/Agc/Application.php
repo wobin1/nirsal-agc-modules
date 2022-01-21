@@ -225,6 +225,13 @@ class Application
 		return $result;
 	}
 
+	public static function getKycdata(int $application_id){
+		$query = "SELECT name, kyc_data_id FROM agc_application_kyc_data where application_id = $application_id";
+		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+		return $result;
+	}
+
 	
 
 	public static function fieldVerification(array $data){
