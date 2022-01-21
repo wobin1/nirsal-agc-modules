@@ -278,4 +278,12 @@ class Application
             return $results;
             return $updateQueryResult;
 	}
+
+	public static function getCompletedFieldVerification(){
+		$query = "SELECT agcName FROM field_verification Where field_verification_status = 1";
+		$Result = DBConnectionFactory::getConnection()->exec($query);
+
+		return $result;
+
+	}
 }
