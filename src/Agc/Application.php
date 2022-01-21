@@ -229,7 +229,7 @@ class Application
 
 	public static function fieldVerification(array $data){
 	      $agcName = $data["agcName"];
-            $verificationDate = $data["verificationDate"];
+            $verification_date = $data["verificationDate"];
             $verificationOfficerName = $data["verificationOfficerName"];
             $state = $data["state"];
             $lga = $data["lga"];
@@ -260,7 +260,7 @@ class Application
             $siteVisitation = $data["siteVisitation"];
             $pmroVerdict = $data["pmroVerdict"];
 
-            $query = "INSERT INTO field_verification (agcName, verificationDate, verificationOfficerName, state, lga, farmlandLocation, latitude, longitude, proposedCrop,proposedSeason, recommendedPlantingDate, plantingDeadline, verifiedLandSize, isLandCountigous, areBoundariesDemacated, isLandPercelized, describeFieldType, describeLandTopography, isLandTractorAble, visualAssesment, availableWaterResources, landmarks, proximityToNonAgricLand, landFeatures, siteAssessibilty, agriculturalPrograms, existingCooperatives, relevantInformation, challenges, siteVisitation,pmroVerdict ) VALUES ( '$agcName', $verificationDate, '$verificationOfficerName', '$state', '$lga', '$farmlandLocation', $latitude, $longitude, '$proposedCrop', '$proposedSeason', $recommendedPlantingDate, $plantingDeadline, '$verifiedLandSize', '$isLandCountigous', '$areBoundariesDemacated', '$isLandPercelized', '$describeFieldType', '$describeLandTopography', '$isLandTractorAble', '$visualAssesment', '$availableWaterResources', '$landmarks', '$proximityToNonAgricLand', '$landFeatures', '$siteAssessibilty', '$agriculturalPrograms', '$existingCooperatives', '$relevantInformation', '$challenges', '$siteVisitation','$pmroVerdict')";
+            $query = "INSERT INTO field_verification (agcName, verification_date, verificationOfficerName, state, lga, farmlandLocation, latitude, longitude, proposedCrop,proposedSeason, recommendedPlantingDate, plantingDeadline, verifiedLandSize, isLandCountigous, areBoundariesDemacated, isLandPercelized, describeFieldType, describeLandTopography, isLandTractorAble, visualAssesment, availableWaterResources, landmarks, proximityToNonAgricLand, landFeatures, siteAssessibilty, agriculturalPrograms, existingCooperatives, relevantInformation, challenges, siteVisitation,pmroVerdict ) VALUES ( '$agcName', $verification_date, '$verificationOfficerName', '$state', '$lga', '$farmlandLocation', $latitude, $longitude, '$proposedCrop', '$proposedSeason', $recommendedPlantingDate, $plantingDeadline, '$verifiedLandSize', '$isLandCountigous', '$areBoundariesDemacated', '$isLandPercelized', '$describeFieldType', '$describeLandTopography', '$isLandTractorAble', '$visualAssesment', '$availableWaterResources', '$landmarks', '$proximityToNonAgricLand', '$landFeatures', '$siteAssessibilty', '$agriculturalPrograms', '$existingCooperatives', '$relevantInformation', '$challenges', '$siteVisitation','$pmroVerdict')";
 
             $result = DBConnectionFactory::getConnection()->exec($query);
 
