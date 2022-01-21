@@ -208,4 +208,11 @@ class Application
 
 		return $result;
 	}
+
+	public static function kycCrcComplete(int $agcId, string $crcStatus){
+		$query = "UPDATE agc_application_kyc_farmers SET crc_status_note = $crcStatusNote WHERE application_id = $agcId";
+		$result = DBConnectionFactory::getConnection()->exec($query);
+
+		return $result;
+	}
 }
