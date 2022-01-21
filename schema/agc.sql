@@ -149,3 +149,13 @@ CREATE TABLE field_verification(
 	FOREIGN KEY (application_id) REFERENCES agc_application (application_id) ON UPDATE CASCADE ON DELETE CASCADE
 
 );
+
+CREATE TABLE head_of_pmros(
+	pmro_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	full_name VARCHAR(100),
+	designation VARCHAR(30),
+	state VARCHAR(50),
+	email VARCHAR(50),
+	phone_number VARCHAR(50)
+
+)
