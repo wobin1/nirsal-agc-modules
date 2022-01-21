@@ -196,11 +196,18 @@ class Application
 		$farmer_crc_status = $data["crcStatus"];
 		
 
-		$query = "INSERT INTO agc_application_kyc_farmers_data (application_id, farmer_bvn, farmers_name, farmer_phone, crc_status) VALUES ('$application_id', '$bvn', '$famer_name', '$farmer_phone', '$farmer_crc_status')";
+		$query = "INSERT INTO `agc_application_kyc_farmers_data`(`application_id`, `farmers_name`, `farmer_bvn`, `farmer_phone`, `crc_status`) VALUES ($application_ids,'$farmer_name','$bvn','$farmer_phone','')";
 
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
 		return $result;		
+	}
+
+	public static function getKycFarmersData(int $agcId){
+		$query = "SELECT * FROM agc_application_kyc_farmers_data WHERE application_id = $agcId";
+		result = DBConnectionFactory::getConnection()->exec($query);
+
+		result $result;
 	}
 
 
