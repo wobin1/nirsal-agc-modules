@@ -102,7 +102,7 @@ CREATE TABLE agc_application_kyc_farmers_data(
 	farmers_name VARCHAR(100),
 	farmer_bvn VARCHAR(20),
 	farmer_phone VARCHAR(20),
-	crc_status VARCHAR(10),
+	crc_status VARCHAR(10) DEFAULT NULL,
 
 	FOREIGN KEY (application_id) REFERENCES agc_application (application_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
