@@ -165,7 +165,7 @@
 		}
 
 		public static function getApplicationStage(int $agcId){
-			$query = "SELECT * FROM agc_application_stage WHERE application_id = $agc_city			d";
+			$query = "SELECT * FROM agc_application_stage WHERE application_id = $agcId";
 			$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 			return $result[0] ?? [];
