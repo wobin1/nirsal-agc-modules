@@ -195,5 +195,10 @@ class Application
 
 	}
 
-	
+	public static function getUsersApplication(int $userId){
+		$query = "SELECT * FROM agc_application where application_id = $userId";
+		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+		return $result;
+	}
 }
