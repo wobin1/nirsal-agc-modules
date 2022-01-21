@@ -203,7 +203,7 @@ class Application
 		return $result;		
 	}
 
-	public static function getAgcApplication(int $userId){
+	public static function getAgcApplication(){
 		$query = "SELECT * FROM agc_application";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
