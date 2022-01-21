@@ -279,8 +279,8 @@ class Application
             return $updateQueryResult;
 	}
 
-	public static function getCompletedFieldVerification(int $userId){
-		$query = "SELECT agcName FROM field_verification Where field_verification_status = $userId";
+	public static function getCompletedFieldVerification(){
+		$query = "SELECT agcName FROM field_verification Where field_verification_status = 1";
 		$Result = DBConnectionFactory::getConnection()->exec($query);
 
 		return $result;
