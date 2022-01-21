@@ -253,6 +253,6 @@ class Application
 
       $result = DBConnectionFactory::getConnection()->exec($query);
 
-      return $results
+      return $results;
 	}
 }
