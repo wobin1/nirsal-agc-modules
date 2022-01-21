@@ -195,6 +195,24 @@ class Application
 	}
 
 
+	public static function newKycData(array $data){
+		$agcId = $data["agcId"];
+		$agcName = $data["agcName"];
+		$commodityCategory = $data["commodityCategory"];
+		$commodityType = $data["crop"];
+		$totalLandSize = $data["agcCapacity"];
+		$totalFarmers = $data["agcTotalFarmers"];
+		$state = $data["agcLocationState"];
+		$lga = $data["agcLocationLga"];
+		$city = $data["agcLocationVillage"];
+
+		$query = "INSERT INTO agc_application_kyc_data (application_id, agc_name, commodity_category, commodity_type, total_land_size_hectares, total_farmers, agc_state, agc_lga, agc_city) VALUES ($agcId, '$agcName', '$commodityCategory', '$crop', $totalLandSize, $totalFarmers, '$state', '$lga', '$city')";
+
+		$result = DBConnectionFactory::getConnection()->exec($query);
+
+		return $result;		
+	}
+
 	public static function addKycFarmerData(array $data){
 		$application_id = $data["application_id"];
 		$bvn = $data["bvn"];
@@ -203,7 +221,7 @@ class Application
 		$farmer_crc_status = $data["crcStatus"];
 		
 
-		$query = "INSERT INTO agc_application_kyc_farmers_data (application_id, farmers_name, farmer_bvn, farmer_phone, crc_status) VALUES ($application_id, '$farmer_name','$bvn','$farmer_phone','NULL')";
+		$query = "INSERT INTO `agc_application_kyc_farmers_data` (`application_id`, `farmers_name`, `farmer_bvn`, `farmer_phone`, `crc_status`) VALUES ($application_id, '$farmer_name','$bvn','$farmer_phone','NULL')";
 
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
