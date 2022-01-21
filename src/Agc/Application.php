@@ -229,7 +229,7 @@ class Application
 
 	public static function fieldVerification(array $data){
 	      	$agcName = $data["agcName"];
-	      	$application_id = $data["agcId"]
+	      	$application_id = $data["agcId"];
             $verification_date = $data["verificationDate"];
             $verificationOfficerName = $data["verificationOfficerName"];
             $state = $data["state"];
