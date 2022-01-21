@@ -164,6 +164,13 @@ class Application
 		return $result;
 	}
 
+	public static function getApplicationStage(int $agcId){
+		$query = "Select stage_name, stage_status from agc_application_stage where application_id = $agcId";
+		$result = DBConnectionFactory::getConnection()->exec($query);
+
+		return $result;
+	}
+
 	public static function addKycFarmers(array $data){
 		$agcId = $data["agcId"];
 		$farmers = $data["farmers"] ?? [];
@@ -231,6 +238,8 @@ class Application
 
 		return $result;
 	}
+
+
 
 	
 
