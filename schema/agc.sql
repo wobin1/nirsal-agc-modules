@@ -112,6 +112,7 @@ CREATE TABLE agc_application_kyc_farmers_data(
 CREATE TABLE field_verification(
 	field_verification_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	agcName VARCHAR(50),
+	application_id INT,
 	field_verification_officer VARCHAR(50),
 	verification_date DATE NOT NULL,
 	state VARCHAR(20),
@@ -141,6 +142,7 @@ CREATE TABLE field_verification(
 	relevantInformation VARCHAR(100),
 	challenges VARCHAR(100),
 	siteVisitation VARCHAR(100),
-	pmroVerdict VARCHAR(50)
+	pmroVerdict VARCHAR(50),
+	field_verification_status SMALLINT DEFAULT 0
 
 );
