@@ -195,7 +195,7 @@ class Application
 		$farmer_crc_status = $data["crcStatus"];
 		
 
-		$query = "INSERT INTO agc_application_kyc_farmers_data (farmers_name, farmer_bvn, farmer_phone, crc_status) VALUES ('$bvn', '$famers_name', '$farmer_phone', '$farmer_crc_status')";
+		$query = "INSERT INTO agc_application_kyc_farmers_data (farmers_name, farmer_bvn, farmer_phone, crc_status) VALUES ('$famer_name', '$bvn', '$farmer_phone', '$farmer_crc_status')";
 
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
