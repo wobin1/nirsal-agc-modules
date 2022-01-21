@@ -112,6 +112,7 @@ CREATE TABLE agc_application_kyc_farmers_data(
 CREATE TABLE field_verification(
 	field_verification_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	agcName VARCHAR(50),
+	field_verification_officer VARCHAR(50),
 	verification_date DATE NOT NULL,
 	state VARCHAR(20),
 	lga VARCHAR(50),
