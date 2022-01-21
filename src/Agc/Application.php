@@ -218,8 +218,8 @@ class Application
 
 	public static function fieldVerification(array $data){
 	  $agcName = $data["agcName"];
-      $verificationDate = $data["verificationDate"],
-      $verificationOfficerName = $data["verificationOfficerName"],
+      $verificationDate = $data["verificationDate"];
+      $verificationOfficerName = $data["verificationOfficerName"];
       $state : $data["state"];
       $lga : $data["lga"];
       $farmlandLocation = $data["farmlandLocation"];
