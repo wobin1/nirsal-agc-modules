@@ -166,7 +166,7 @@ class Application
 
 	public static function getApplicationStage(int $agcId){
 		$query = "Select * from agc_application_stage where application_id = $agcId";
-		$result = DBConnectionFactory::getConnection()->exec($query);
+		$result = DBConnectionFactory::getConnection()->exec($query)->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result;
 	}
