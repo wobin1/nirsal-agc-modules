@@ -189,7 +189,7 @@ class Application
 
 
 	public static function addKycFarmerData(array $data){
-		$application_id = $data["agcId"];
+		$application_id = $data["application_id"];
 		$bvn = $data["bvn"];
 		$farmer_name = $data["name"];
 		$farmer_phone = $data["phoneNumber"];
