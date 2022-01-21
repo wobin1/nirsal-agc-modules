@@ -265,7 +265,7 @@ class Application
 
             $result = DBConnectionFactory::getConnection()->exec($query);
 
-            $updateQuery = "UPDATE field_verification SET field_verification_status = 1 WHERE application_id = $agcId";
+            $updateQuery = "UPDATE field_verification SET field_verification_status = 1 WHERE application_id = $application_id";
             $updateQueryResult = DBConnectionFactory::getConnection()->exec($query);
 
             return $results;
