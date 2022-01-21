@@ -143,7 +143,7 @@ class Application
 		$lga = $data["agcLocationLga"];
 		$city = $data["agcLocationVillage"];
 
-		$query = "INSERT INTO agc_application_kyc_data (application_id, agc_name, commodity_category, commodity_type, total_land_size_hectares, total_farmers, agc_state, agc_lga, agc_city) VALUES ($agcId, '$agcName', '$commodityCategory', '$commodityType', $totalLandSize, $totalFarmers, '$state', '$lga', '$city')";
+		$query = "INSERT INTO agc_application_kyc_data (application_id, agc_name, commodity_category, commodity_type, total_land_size_hectares, total_farmers, agc_state, agc_lga, agc_city) VALUES ($agcId, '$agcName', '$commodityCategory', '$crop', $totalLandSize, $totalFarmers, '$state', '$lga', '$city')";
 
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
