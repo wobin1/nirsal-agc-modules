@@ -95,6 +95,20 @@ CREATE TABLE agc_application_kyf_allocations (
 	FOREIGN KEY (agc_farmer_id) REFERENCES agc_application_kyc_farmers (agc_farmer_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+
+CREATE TABLE agc_application_kyc_farmers_data(
+	farmers_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	application_id INT,
+	farmers_name VARCHAR(100),
+	farmer_bvn VARCHAR(20),
+	farmer_phone VARCHAR(20),
+	crc_status VARCHAR(10),
+
+	FOREIGN KEY (application_id) REFERENCES agc_application (application_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
+
 	CREATE TABLE field_verification(
 		field_verification_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 		agcName VARCHAR(50),
