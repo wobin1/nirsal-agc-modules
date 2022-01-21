@@ -165,7 +165,7 @@ class Application
 	}
 
 	public static function getApplicationStage(int $agcId){
-		$query = "Select stage_name, stage_status from agc_application_stage where application_id = $agcId";
+		$query = "Select * from agc_application_stage where application_id = $agcId";
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
 		return $result;
