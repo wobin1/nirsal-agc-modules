@@ -166,9 +166,9 @@ class Application
 
 	public static function getApplicationStage(int $agcId){
 		$query = "Select * from agc_application_stage where application_id = $agcId";
-		$result = DBConnectionFactory::getConnection()->exec($query)->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
-		return $result;
+		return $result[0] ?? [];
 	}
 
 	public static function addKycFarmers(array $data){
