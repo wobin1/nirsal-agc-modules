@@ -256,5 +256,7 @@ class Application
       return $results
 	}
 
-	
+	public static getPendingCcr(){};
+
+
 }
