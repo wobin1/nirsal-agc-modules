@@ -59,7 +59,8 @@ class Application
 		return $result;
 	}
 
-	public static function completeStage(int $stageId){
+	public static function comple
+	teStage(int $stageId){
 		$stageStatus = 1;
 
 		$query = "UPDATE agc_application_stage SET stage_status=$stageStatus, last_modified=CURRENT_TIMESTAMP WHERE application_stage_id=$stageId";
@@ -165,11 +166,11 @@ class Application
 	}
 
 	public static function getApplicationStage(int $agcId){
-		$query = "Select * from agc_application_stage where application_id = $agcId";
+		$query = "SELECT * FROM agc_application_stage WHERE application_id = $agc_city			d";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result[0] ?? [];
-	}
+	}		
 
 	public static function addKycFarmers(array $data){
 		$agcId = $data["agcId"];
@@ -221,11 +222,11 @@ class Application
 		$farmer_crc_status = $data["crcStatus"];
 		
 
-		$query = "INSERT INTO `agc_application_kyc_farmers_data` (`application_id`, `farmers_name`, `farmer_bvn`, `farmer_phone`, `crc_status`) VALUES ($application_id, '$farmer_name','$bvn','$farmer_phone','NULL')";
+		// $query = "INSERT INTO `agc_application_kyc_farmers_data` (`application_id`, `farmers_name`, `farmer_bvn`, `farmer_phone`, `crc_status`) VALUES ($application_id, '$farmer_name','$bvn','$farmer_phone','NULL')";
 
-		$result = DBConnectionFactory::getConnection()->exec($query);
+		// $result = DBConnectionFactory::getConnection()->exec($query);
 
-		return $result;			
+		// return $result;			
 	}
 
 	public static function getKycFarmersData(){

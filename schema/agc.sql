@@ -47,7 +47,6 @@ CREATE TABLE agc_application_kyl_data (
 
 CREATE TABLE agc_application_kyc_data (
 	kyc_data_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-	agc_farmer_id INT,
 	application_id INT,
 	agc_name VARCHAR(50) NOT NULL UNIQUE,
 	commodity_category VARCHAR(50),
@@ -60,8 +59,7 @@ CREATE TABLE agc_application_kyc_data (
 	is_bvn_validated SMALLINT DEFAULT 0,
 	is_crc_complete SMALLINT DEFAULT 0,
 
-	FOREIGN KEY (application_id) REFERENCES agc_application (application_id) ON UPDATE CASCADE ON DELETE CASCADE,
-	FOREIGN KEY (agc_farmer_id) REFERENCES agc_application_kyc_farmers (agc_farmer_id) ON UPDATE CASCADE ON DELETE CASCADE
+	FOREIGN KEY (application_id) REFERENCES agc_application (application_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE agc_application_kyc_farmers (
@@ -160,4 +158,11 @@ CREATE TABLE head_of_pmros(
 	email VARCHAR(50),
 	phone_number VARCHAR(50)
 
+)
+
+CREATE TABE cost_incured(
+		cost_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+		application_id INT,
+		cost INT,
+		cost_status DEFAULT unpaid
 )
