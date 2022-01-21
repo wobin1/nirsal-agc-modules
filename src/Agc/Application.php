@@ -203,8 +203,8 @@ class Application
 		return $result;		
 	}
 
-	public static function getKycFarmersData(int $agcId){
-		$query = "SELECT * FROM agc_application_kyc_farmers_data WHERE application_id = $agcId";
+	public static function getKycFarmersData(){
+		$query = "SELECT * FROM agc_application_kyc_farmers_data WHERE application_id = 1";
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
 		return $result;
