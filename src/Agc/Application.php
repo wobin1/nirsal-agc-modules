@@ -216,7 +216,7 @@ class Application
 		return $result;
 	}
 
-	public static function fieldVerification(array data){
+	public static function fieldVerification(array $data){
 	  $agcName : $data["agcName"],
       $verificationDate : $data["verificationDate"],
       $verificationOfficerName : $data["verificationOfficerName"],
@@ -255,8 +255,4 @@ class Application
 
       return $results
 	}
-
-	public static getPendingCcr(){};
-
-
 }
