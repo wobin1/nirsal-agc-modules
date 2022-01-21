@@ -126,6 +126,7 @@ CREATE TABLE field_verification(
 	verifiedLandSize VARCHAR (20),
 	isLandCountigous VARCHAR(3),
 	areBoundriesDemacated VARCHAR(3),
+	isLandPercelized VARCHAR(3),
 	describeFieldType VARCHAR(10),
 	describeLandTopography VARCHAR(10),
 	isLandTractorAble VARCHAR(3),

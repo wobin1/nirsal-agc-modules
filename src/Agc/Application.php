@@ -218,8 +218,8 @@ class Application
 		return $result;
 	}
 
-	public static function getAgcFarmers(int $application_id){
-		$query = "SELECT * FROM  agc_application_kyc_farmers WHERE application_id = $application_id";
+	public static function getAgcFarmers(){
+		$query = "SELECT * FROM  agc_application_kyc_farmers";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result;
