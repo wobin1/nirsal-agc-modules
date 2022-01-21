@@ -195,26 +195,5 @@ class Application
 
 	}
 
-	public static function getUsersApplication(int $userId){
-		$query = "SELECT * FROM agc_application where application_id = $userId";
-		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
-
-		return $result;
-	}
-
-	public static function getAgcFarmers(int $application_id){
-		$query = "SELECT * FROM  agc_application_kyc_farmers WHERE application_id = $application_id";
-		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
-
-		return $result;
-	}
-
-	public static function kycCrcComplete(int $agcId, string $crcStatusNote){
-		$query = "UPDATE agc_application_kyc_farmers SET crc_status_note = $crcStatusNote WHERE application_id = $agcId";
-		$result = DBConnectionFactory::getConnection()->exec($query);
-
-		return $result;
-	}
-
-
+	
 }
