@@ -214,20 +214,20 @@ class Application
 		return $result;		
 	}
 
-	public static function addKycFarmerData(array $data){
-		$application_id = $data["application_id"];
-		$bvn = $data["bvn"];
-		$farmer_name = $data["name"];
-		$farmer_phone = $data["phoneNumber"];
-		$farmer_crc_status = $data["crcStatus"];
+	// public static function addKycFarmerData(array $data){
+	// 	$application_id = $data["application_id"];
+	// 	$bvn = $data["bvn"];
+	// 	$farmer_name = $data["name"];
+	// 	$farmer_phone = $data["phoneNumber"];
+	// 	$farmer_crc_status = $data["crcStatus"];
 		
 
-		// $query = "INSERT INTO `agc_application_kyc_farmers_data` (`application_id`, `farmers_name`, `farmer_bvn`, `farmer_phone`, `crc_status`) VALUES ($application_id, '$farmer_name','$bvn','$farmer_phone','NULL')";
+	// 	$query = "INSERT INTO `agc_application_kyc_farmers_data` (`application_id`, `farmers_name`, `farmer_bvn`, `farmer_phone`, `crc_status`) VALUES ($application_id, '$farmer_name','$bvn','$farmer_phone','NULL')";
 
-		// $result = DBConnectionFactory::getConnection()->exec($query);
+	// 	$result = DBConnectionFactory::getConnection()->exec($query);
 
-		// return $result;			
-	}
+	// 	return $result;			
+	// }
 
 	public static function getKycFarmersData(){
 		$query = "SELECT * FROM agc_application_kyc_farmers_data";
