@@ -104,6 +104,16 @@ class Application
 		return $result[0] ?? [];
 	}
 
+	public static function getSingleStage(int $agcId){
+
+		$query = "SELECT * FROM agc_application_stage WHERE application_id = $agcId ";
+		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+		return $result
+	}
+
+
+
 	public static function newKylData(array $data){
 		$agcId = $data["agcId"];
 		$leaders = $data["leaders"] ?? [];
