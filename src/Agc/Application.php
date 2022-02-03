@@ -109,7 +109,7 @@ class Application
 		$query = "SELECT * FROM agc_application_stage WHERE application_id = $agcId ";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
-		return $result
+		return $result;
 	}
 
 
