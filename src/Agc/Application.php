@@ -199,14 +199,14 @@ class Application
 
 
 	public static function addKycFarmerData(array $data){
-		$application_id = $data["application_id"];
+		$agcId = $data["application_id"];
 		$bvn = $data["bvn"];
 		$farmer_name = $data["name"];
 		$farmer_phone = $data["phoneNumber"];
 		$farmer_crc_status = $data["crcStatus"];
 		
 
-		$query = "INSERT INTO agc_application_kyc_farmers_data (application_id, farmers_name, farmer_bvn, farmer_phone, crc_status) VALUES (application_id, '$farmer_name','$bvn','$farmer_phone','')";
+		$query = "INSERT INTO agc_application_kyc_farmers_data (application_id, farmers_name, farmer_bvn, farmer_phone, crc_status) VALUES ($agcId, '$farmer_name','$bvn','$farmer_phone','')";
 
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
