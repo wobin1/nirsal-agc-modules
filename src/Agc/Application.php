@@ -43,21 +43,21 @@
 				return $result;
 			}
 
-			public static function startStage(array $data){
-				$applicationId = $data["agcId"];
-				$stage = $data["stage"];
-				$stageStatus = -1;
+			// public static function startStage(array $data){
+			// 	$applicationId = $data["agcId"];
+			// 	$stage = $data["stage"];
+			// 	$stageStatus = -1;
 
-				$query = "INSERT INTO agc_application_stage (application_id, stage_name, stage_status) VALUES ($applicationId, '$stage', $stageStatus)";
-				$db = DBConnectionFactory::getConnection();
-				$result = $db->exec($query);
+			// 	$query = "INSERT INTO agc_application_stage (application_id, stage_name, stage_status) VALUES ($applicationId, '$stage', $stageStatus)";
+			// 	$db = DBConnectionFactory::getConnection();
+			// 	$result = $db->exec($query);
 
-				if ($result){
-					return ["stageId"=>$db->lastInsertId()];
-				}
+			// 	if ($result){
+			// 		return ["stageId"=>$db->lastInsertId()];
+			// 	}
 
-				return $result;
-			}
+			// 	return $result;
+			// }
 
 			// public static function completeStage(int $stageId){
 			// 	$stageStatus = 1;
