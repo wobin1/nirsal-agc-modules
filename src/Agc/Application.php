@@ -206,7 +206,7 @@ class Application
 		$farmer_crc_status = $data["crcStatus"];
 		
 
-		$query = "INSERT INTO `agc_application_kyc_farmers_data` (`application_id`, `farmers_name`, `farmer_bvn`, `farmer_phone`, `crc_status`) VALUES ($application_id, '$farmer_name','$bvn','$farmer_phone','')";
+		$query = "INSERT INTO agc_application_kyc_farmers_data (application_id, farmers_name, farmer_bvn, farmer_phone, crc_status) VALUES (application_id, '$farmer_name','$bvn','$farmer_phone','')";
 
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
@@ -229,7 +229,7 @@ class Application
 	}
 
 	public static function getAgcFarmers(int $application_id){
-		$query = "SELECT * FROM  agc_application_kyc_farmers_data WHERE application_id = $application_id";
+		$query = "SELECT * FROM  agc_application_kyc_farmers_data";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result;
