@@ -104,26 +104,26 @@
 			// 	return $result[0] ?? [];
 			// }
 
-			public static function newKylData(array $data){
-				$agcId = $data["agcId"];
-				$leaders = $data["leaders"] ?? [];
+			// public static function newKylData(array $data){
+			// 	$agcId = $data["agcId"];
+			// 	$leaders = $data["leaders"] ?? [];
 
-				$sqlValues = [];
-				foreach ($leaders as $leader){
-					$leaderData = [
-						$agcId, 
-						QB::wrapString($leader["bvn"] ?? '', "'"), 
-						QB::wrapString($leader["type"] ?? '', "'"),
-						QB::wrapString($leader["state"] ?? '', "'"),
-						QB::wrapString($leader["lga"] ?? '', "'"),
-						QB::wrapString($leader["address"] ?? '', "'"),
-						QB::wrapString($leader["academicQualification"] ?? '', "'"),
-						QB::wrapString($leader["workExperience"] ?? '', "'"),
-						QB::wrapString(json_encode($leader["questionnaire"] ?? ''), "'")
-					];
+			// 	$sqlValues = [];
+			// 	foreach ($leaders as $leader){
+			// 		$leaderData = [
+			// 			$agcId, 
+			// 			QB::wrapString($leader["bvn"] ?? '', "'"), 
+			// 			QB::wrapString($leader["type"] ?? '', "'"),
+			// 			QB::wrapString($leader["state"] ?? '', "'"),
+			// 			QB::wrapString($leader["lga"] ?? '', "'"),
+			// 			QB::wrapString($leader["address"] ?? '', "'"),
+			// 			QB::wrapString($leader["academicQualification"] ?? '', "'"),
+			// 			QB::wrapString($leader["workExperience"] ?? '', "'"),
+			// 			QB::wrapString(json_encode($leader["questionnaire"] ?? ''), "'")
+			// 		];
 
-					$sqlValues[] = "(".implode(",", $leaderData).")";
-				}
+			// 		$sqlValues[] = "(".implode(",", $leaderData).")";
+			// 	}
 
 			// 	$query = "INSERT INTO agc_application_kyl_data (application_id, leader_bvn, kyl_leader_type, residential_state, residential_lga, contact_address, academic_qualification, work_experience, leader_questionnaire) VALUES ".implode($sqlValues, ",");
 
