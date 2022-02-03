@@ -23,25 +23,25 @@
 		 */
 		class Application
 		{
-			public static function createNewAgc(array $data) {
-				$user = $data["userId"];
+			// public static function createNewAgc(array $data) {
+			// 	$user = $data["userId"];
 
-				$query = "INSERT INTO agc_application (user_id) VALUES ($user)";
-				$db = DBConnectionFactory::getConnection();
-				$result = $db->exec($query);
+			// 	$query = "INSERT INTO agc_application (user_id) VALUES ($user)";
+			// 	$db = DBConnectionFactory::getConnection();
+			// 	$result = $db->exec($query);
 
-				if ($result){
-					$agcId = $db->lastInsertId();
-					$termsStage = self::startStage([
-						"agcId"=>$agcId,
-						"stage"=>"T&C"
-					]);
+			// 	if ($result){
+			// 		$agcId = $db->lastInsertId();
+			// 		$termsStage = self::startStage([
+			// 			"agcId"=>$agcId,
+			// 			"stage"=>"T&C"
+			// 		]);
 
-					return ["agcId"=>$agcId, "termsStage"=>$termsStage];
-				}
+			// 		return ["agcId"=>$agcId, "termsStage"=>$termsStage];
+			// 	}
 
-				return $result;
-			}
+			// 	return $result;
+			// }
 
 			// public static function startStage(array $data){
 			// 	$applicationId = $data["agcId"];
