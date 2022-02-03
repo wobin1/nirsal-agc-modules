@@ -94,15 +94,15 @@
 				return $stages;
 			}
 
-			public static function getStage(array $data){
-				$stageName = $data["stage"];
-				$agcId = $data["agcId"];
+			// public static function getStage(array $data){
+			// 	$stageName = $data["stage"];
+			// 	$agcId = $data["agcId"];
 
-				$query = "SELECT * FROM agc_application_stage WHERE application_id = $agcId AND stage_name='$stageName'";
-				$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+			// 	$query = "SELECT * FROM agc_application_stage WHERE application_id = $agcId AND stage_name='$stageName'";
+			// 	$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
-				return $result[0] ?? [];
-			}
+			// 	return $result[0] ?? [];
+			// }
 
 			public static function newKylData(array $data){
 				$agcId = $data["agcId"];
