@@ -82,17 +82,17 @@
 				return [$complete, $start];
 			}
 
-			public static function getStages(int $agcId){
-				$stages = [];
-				$query = "SELECT * FROM agc_application_stage WHERE application_id = $agcId";
-				$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+			// public static function getStages(int $agcId){
+			// 	$stages = [];
+			// 	$query = "SELECT * FROM agc_application_stage WHERE application_id = $agcId";
+			// 	$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
-				foreach($result as $stage){
-					$stages[$stage["stage_name"]] = $stage;
-				}
+			// 	foreach($result as $stage){
+			// 		$stages[$stage["stage_name"]] = $stage;
+			// 	}
 
-				return $stages;
-			}
+			// 	return $stages;
+			// }
 
 			// public static function getStage(array $data){
 			// 	$stageName = $data["stage"];
