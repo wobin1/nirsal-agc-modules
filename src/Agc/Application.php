@@ -125,12 +125,12 @@
 					$sqlValues[] = "(".implode(",", $leaderData).")";
 				}
 
-			// 	$query = "INSERT INTO agc_application_kyl_data (application_id, leader_bvn, kyl_leader_type, residential_state, residential_lga, contact_address, academic_qualification, work_experience, leader_questionnaire) VALUES ".implode($sqlValues, ",");
+				$query = "INSERT INTO agc_application_kyl_data (application_id, leader_bvn, kyl_leader_type, residential_state, residential_lga, contact_address, academic_qualification, work_experience, leader_questionnaire) VALUES ".implode($sqlValues, ",");
 
-			// 	$result = DBConnectionFactory::getConnection()->exec($query);
+				$result = DBConnectionFactory::getConnection()->exec($query);
 
-			// 	return $result;
-			// }
+				return $result;
+			}
 
 			// public static function newKycData(array $data){
 			// 	$agcId = $data["agcId"];
