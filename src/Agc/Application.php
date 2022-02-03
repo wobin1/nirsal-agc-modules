@@ -59,14 +59,14 @@
 				return $result;
 			}
 
-			public static function completeStage(int $stageId){
-				$stageStatus = 1;
+			// public static function completeStage(int $stageId){
+			// 	$stageStatus = 1;
 
-				$query = "UPDATE agc_application_stage SET stage_status=$stageStatus, last_modified=CURRENT_TIMESTAMP WHERE application_stage_id=$stageId";
-				$result = DBConnectionFactory::getConnection()->exec($query);
+			// 	$query = "UPDATE agc_application_stage SET stage_status=$stageStatus, last_modified=CURRENT_TIMESTAMP WHERE application_stage_id=$stageId";
+			// 	$result = DBConnectionFactory::getConnection()->exec($query);
 
-				return $result;
-			}
+			// 	return $result;
+			// }
 
 			// public static function activateNextStage(array $data){
 			// 	$stageId = $data["completedStageId"];
