@@ -200,6 +200,7 @@ class Application
 
 	public static function addKycFarmerData(array $farmersData){
 		$values = [];
+
 		foreach ($farmersData as $data){
 			$agcId = $data["application_id"];
 			$bvn = $data["bvn"];
@@ -211,8 +212,6 @@ class Application
 		}
 
 		$query = "INSERT INTO agc_application_kyc_farmers_data (application_id, farmers_name, farmer_bvn, farmer_phone, crc_status) VALUES ".implode($values, ",");
-
-		die($query);
 
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
