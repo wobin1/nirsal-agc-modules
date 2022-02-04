@@ -233,10 +233,9 @@ class Application
 			$crsStatus = $data["CRC"];
 
 			$values[] = "('$crsStatus')";
-			$values2 = "($agcId)"
+			$values2 = "($agcId)";
 			
 	}
-}
 
 		$data = implode($values, ',');
 		$query = "UPDATE agc_application_farmers_data SET crc_status = $data WHERE application_id = $agcId";
