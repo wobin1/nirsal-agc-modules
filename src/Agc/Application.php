@@ -106,7 +106,7 @@ class Application
 
 	public static function getSingleStage(int $agcId){
 
-		$query = "SELECT * FROM agc_application_stage WHERE application_id = $agcId ";
+		$query = "SELECT stage_name FROM agc_application_stage WHERE application_id = $agcId ";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result;
