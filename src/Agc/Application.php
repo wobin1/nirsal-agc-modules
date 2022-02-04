@@ -218,6 +218,20 @@ class Application
 		return $result;		
 	}
 
+	public static function getCost(int $agcId){
+		$query = "SELECT cost FROM cost_incured WHERE application_id = $agcId";
+		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+		return $result;
+	}
+
+	public static function updateCost(int $agcId, int $updatedCost){
+		$query = "UPDATE cost_incured SET cost = $updatedCost WHERE application_id = $agcId";
+		$result = DBConnectionFactory::getConnection()->exec($query);
+
+		return $result;
+	}
+
 	public static function getKycFarmersData(int $agcId){
 		$query = "SELECT * FROM agc_application_kyc_farmers_data WHERE application_id = $agcId";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
@@ -236,7 +250,7 @@ class Application
 			
 	}
 
-	$data = implode($values, ',');
+		$data = implode($values, ',');
 		$query = "UPDATE agc_application_farmers_data SET crc_status = $data WHERE application_id = $agcId";
 
 		$result = DBConnectionFactory::getConnection()->exec($query);

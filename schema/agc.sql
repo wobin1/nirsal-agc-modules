@@ -102,7 +102,7 @@ CREATE TABLE agc_application_kyc_farmers_data(
 	farmers_name VARCHAR(100),
 	farmer_bvn VARCHAR(20),
 	farmer_phone VARCHAR(20),
-	crc_status VARCHAR(10) DEFAULT NULL,
+	payment_status VARCHAR(10) DEFAULT NULL,
 
 	FOREIGN KEY (application_id) REFERENCES agc_application (application_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -158,11 +158,11 @@ CREATE TABLE head_of_pmros(
 	email VARCHAR(50),
 	phone_number VARCHAR(50)
 
-)
+);
 
-CREATE TABE cost_incured(
+CREATE TABlE cost_incured(
 		cost_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 		application_id INT,
 		cost INT,
 		cost_status DEFAULT unpaid
-)
+);
