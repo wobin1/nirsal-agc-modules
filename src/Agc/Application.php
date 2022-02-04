@@ -219,7 +219,7 @@ class Application
 	}
 
 	public static function getKycFarmersData(int $agcId){
-		$query = "SELECT * FROM agc_application_kyc_farmers_data WHERE application_id = agcId";
+		$query = "SELECT * FROM agc_application_kyc_farmers_data WHERE application_id = $agcId";
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
 		return $result;
@@ -241,7 +241,7 @@ class Application
 	}
 
 	public static function getKycdata(){
-		$query = "SELECT agc_name, kyc_data_id FROM agc_application_kyc_data";
+		$query = "SELECT agc_name, kyc_data_id, application_id FROM agc_application_kyc_data";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result;
