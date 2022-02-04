@@ -218,6 +218,8 @@ class Application
 		return $result;		
 	}
 
+
+
 	public static function getKycFarmersData(int $agcId){
 		$query = "SELECT * FROM agc_application_kyc_farmers_data WHERE application_id = $agcId";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
@@ -226,7 +228,10 @@ class Application
 	}
 
 
-	public statuc function updateKycFarmersCrc(array $crcStatus){
+	
+
+
+	public statuc function updateKycFarmersCrc(int $agcId, array $crcStatus,){
 		$values = [];
 
 		foreach ($crcStatus as $data){
@@ -234,12 +239,11 @@ class Application
 		}
 
 		$values[] = "($crc_status)"
-
 		$crc = implode($values, ",");
 
 
 
-		$query ="UPDATE agc_application-kyc_farmers_data SET  crc_status = $crc";
+		$query ="UPDATE agc_application-kyc_farmers_data SET  crc_status = $crc WHERE application_id = $agcId";
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
 		return result
