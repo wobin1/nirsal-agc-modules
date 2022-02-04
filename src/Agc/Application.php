@@ -227,21 +227,21 @@ class Application
 
 
 	public static function getUsersApplication(int $userId){
-		$query = "SELECT * FROM agc_application where user_id = $userId";
+		$query = "SELECT * FROM agc_application WHERE user_id = $userId";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result;
 	}
 
 	public static function getAgcFarmers(int $application_id){
-		$query = "SELECT * FROM  agc_application_kyc_farmers_data";
+		$query = "SELECT * FROM  agc_application_kyc_farmers_data WHERE application_id= $agcId";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result;
 	}
 
 	public static function getKycdata(){
-		$query = "SELECT agc_name, kyc_data_id, application_id FROM agc_application_kyc_data";
+		$query = "SELECT agc_name, kyc_data_id FROM agc_application_kyc_data";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result;
