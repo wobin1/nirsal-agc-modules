@@ -233,13 +233,17 @@ class Application
 			$crsStatus = $data["CRC"];
 
 			$values[] = "('$crsStatus')";
-			$values2 = "($agcId)";
+			$values2[] = "($agcId)";
+
+			print_r($values);
+			print_r($values2);
+			die("no data to display");
 			
 	}
 
 		$data = implode($values, ',');
 		$data2 = implode($values2, ',');
-		$query = "UPDATE agc_application_farmers_data SET crc_status = $data WHERE application_id = 1";
+		$query = "UPDATE agc_application_farmers_data SET crc_status =  WHERE application_id = 1";
 
 		$result = DBConnectionFactory::getConnection()->exec($query);
 		return $result;
