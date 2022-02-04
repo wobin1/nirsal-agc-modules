@@ -229,8 +229,6 @@ class Application
 
 
 
-
-
 	public statuc function updateKycFarmersCrc(int $agcId, array $crcStatus){
 		$values = [];
 
@@ -246,7 +244,7 @@ class Application
 		$query ="UPDATE agc_application-kyc_farmers_data SET  crc_status = $crc WHERE application_id = $agcId";
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
-		return result
+		return result;
 	}
 
 	public static function updateKycFarmerNumber($agcId){
