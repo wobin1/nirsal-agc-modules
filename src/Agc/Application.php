@@ -198,15 +198,21 @@ class Application
 	}
 
 
-	public static function addKycFarmerData(array $data){
-		$agcId = $data["application_id"];
-		$bvn = $data["bvn"];
-		$farmer_name = $data["name"];
-		$farmer_phone = $data["phoneNumber"];
-		$farmer_crc_status = $data["crcStatus"];
-		
+	public static function addKycFarmerData(array $farmersData){
+		$values = [];
+		foreach ($farmersData as $data){
+			$agcId = $data["application_id"];
+			$bvn = $data["bvn"];
+			$farmer_name = $data["name"];
+			$farmer_phone = $data["phoneNumber"];
+			$farmer_crc_status = $data["crcStatus"];
 
-		$query = "INSERT INTO agc_application_kyc_farmers_data (application_id, farmers_name, farmer_bvn, farmer_phone, crc_status) VALUES ($agcId, '$farmer_name','$bvn','$farmer_phone',NULL)";
+			$values[] = "($agcId, '$farmer_name','$bvn','$farmer_phone',NULL)";
+		}
+
+		$query = "INSERT INTO agc_application_kyc_farmers_data (application_id, farmers_name, farmer_bvn, farmer_phone, crc_status) VALUES ".implode($values, ",");
+
+		die($query);
 
 		$result = DBConnectionFactory::getConnection()->exec($query);
 
