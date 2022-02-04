@@ -225,12 +225,27 @@ class Application
 		return $result;
 	}
 
-	
+	public static function updateKycData(int $agcId, array $crcStatus){
+		$values = [];
+
+		foreach($farmerData as $data){
+			$agcId = $data["application_id"];
+			$crsStatus = $data["CRC"];
+
+			$values[] = "($crsStatus)";
+			
+
+		$data = implode($values, ',')''
+		$query = "UPDATE agc_application_farmers_data SET crc_status = $data WHERE application_id = $agcId";
+
+		$result = DBConnectionFactory::getConnection()->exec($query);
+		return $result;
+	}
 
 
 	public static function getUsersApplication(int $userId){
 		$query = "SELECT * FROM agc_application WHERE user_id = $userId";
-		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+		
 
 		return $result;
 	}
@@ -243,7 +258,7 @@ class Application
 	}
 
 	public static function getKycdata(){
-		$query = "SELECT agc_name, kyc_data_id, application_id FROM agc_application_kyc_data";
+		$query = "SELECT agc_name, kyc_data_id FROM agc_application_kyc_data";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result;
