@@ -235,7 +235,7 @@ class Application
 			$values[] = "($crsStatus)";
 			
 
-		$data = implode($values, ',')
+		$data = implode($values, ',');
 		$query = "UPDATE agc_application_farmers_data SET crc_status = $data WHERE application_id = $agcId";
 
 		$result = DBConnectionFactory::getConnection()->exec($query);
