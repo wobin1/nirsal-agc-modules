@@ -229,7 +229,7 @@ class Application
 		$values = [];
 
 		foreach($farmerData as $data){
-			$agcId = $data["application_id"];
+			$agcId = $data["farmers_id"];
 			$crsStatus = $data["CRC"];
 
 			$values[] = "('$crsStatus')";
