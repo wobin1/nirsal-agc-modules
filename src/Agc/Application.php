@@ -220,13 +220,9 @@ class Application
 
 	public static function getKycFarmersData(int $agcId){
 		$query = "SELECT * FROM agc_application_kyc_farmers_data WHERE application_id = $agcId";
-		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+		$result = DBConnectionFactory::getConnection()->exec($query);
 
 		return $result;
-	}
-
-	public static function updateKycFarmerNumber($agcId){
-		
 	}
 
 
@@ -238,7 +234,7 @@ class Application
 	}
 
 	public static function getAgcFarmers(int $application_id){
-		$query = "SELECT * FROM  agc_application_kyc_farmers_data WHERE application_id = $agcId";
+		$query = "SELECT * FROM  agc_application_kyc_farmers_data WHERE application_id= $agcId";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result;
@@ -250,8 +246,6 @@ class Application
 
 		return $result;
 	}
-
-	
 
 	
 
