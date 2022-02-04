@@ -228,10 +228,10 @@ class Application
 	}
 
 
-	
 
 
-	public statuc function updateKycFarmersCrc(int $agcId, array $crcStatus,){
+
+	public statuc function updateKycFarmersCrc(int $agcId, array $crcStatus){
 		$values = [];
 
 		foreach ($crcStatus as $data){
