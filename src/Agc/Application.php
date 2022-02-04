@@ -225,6 +225,26 @@ class Application
 		return $result;
 	}
 
+
+	public statuc function updateKycFarmersCrc(array $crcStatus){
+		$values = [];
+
+		foreach ($crcStatus as $data){
+			$crc_status = $data["CRC"];
+		}
+
+		$values[] = "($crc_status)"
+
+		$crc = implode($values, ",");
+
+
+
+		$query ="UPDATE agc_application-kyc_farmers_data SET  crc_status = $crc";
+		$result = DBConnectionFactory::getConnection()->exec($query);
+
+		return result
+	}
+
 	public static function updateKycFarmerNumber($agcId){
 		
 	}
