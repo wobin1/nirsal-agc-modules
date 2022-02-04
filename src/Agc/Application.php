@@ -226,7 +226,7 @@ class Application
 	}
 
 	public static function updateKycFarmerNumber($agcId){
-		$query = "SELECT * From agc_"
+		
 	}
 
 
