@@ -218,33 +218,11 @@ class Application
 		return $result;		
 	}
 
-
-
 	public static function getKycFarmersData(int $agcId){
 		$query = "SELECT * FROM agc_application_kyc_farmers_data WHERE application_id = $agcId";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result;
-	}
-
-
-
-	public statuc function updateKycFarmersCrc(int $agcId, array $crcStatus){
-		$values = [];
-
-		foreach ($crcStatus as $data){
-			$crc_status = $data["CRC"];
-		}
-
-		$values[] = "($crc_status)"
-		$crc = implode($values, ",");
-
-
-
-		$query ="UPDATE agc_application-kyc_farmers_data SET  crc_status = $crc WHERE application_id = $agcId";
-		$result = DBConnectionFactory::getConnection()->exec($query);
-
-		return result;
 	}
 
 	public static function updateKycFarmerNumber($agcId){
@@ -272,6 +250,8 @@ class Application
 
 		return $result;
 	}
+
+	
 
 	
 
