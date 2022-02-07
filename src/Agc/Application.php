@@ -227,6 +227,7 @@ class Application
 
 	public static function updateKycData(array $crcStatus){
 		$values = [];
+		$values2 = [];
 
 		foreach($farmerData as $data){
 			$agcId = $data["farmers_id"];
@@ -242,8 +243,8 @@ class Application
 	}
 
 		$data = implode($values, ',');
-		$data2 = implode($values2, ',');
-		$query = "UPDATE agc_application_farmers_data SET crc_status =$data WHERE application_id = 1";
+	
+		$query = "UPDATE agc_application_farmers_data SET crc_status =".implode($values, ","). "WHERE application_id =".implode($values2. ",");
 
 		$result = DBConnectionFactory::getConnection()->exec($query);
 		return $result;
