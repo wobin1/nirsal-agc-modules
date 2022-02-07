@@ -226,25 +226,26 @@ class Application
 	}
 
 	public static function updateKycData(array $crcStatus){
-		$values = [];
-		$values2 = [];
+		$values = $crcStatus;
+		print_r($values)
+		// $values2 = [];
 
-		foreach($farmerData as $data){
-			$agcId = $data["farmers_id"];
-			$crsStatus = $data["CRC"];
+	// 	foreach($farmerData as $data){
+	// 		$agcId = $data["farmers_id"];
+	// 		$crsStatus = $data["CRC"];
 
-			$values[] = "('$crsStatus')";
-			$values2[] = "($agcId)";
+	// 		$values[] = "('$crsStatus')";
+	// 		$values2[] = "($agcId)";
 
-			print_r($values);
-			print_r($values2);
+	// 		print_r($values);
+	// 		print_r($values2);
 
 			
-	}
+	// }
 
-		$data = implode($values, ',');
+	// 	$data = implode($values, ',');
 
-		print_r($data);
+	// 	print_r($data);
 	
 		// $query = "UPDATE agc_application_farmers_data SET crc_status =".implode($values, ","). "WHERE application_id =".implode($values2);
 
