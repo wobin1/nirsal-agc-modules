@@ -229,12 +229,12 @@ class Application
 		$values = [];
 		$values2 = [];
 
-		$data
+		// $data
 
-		foreach($crsStatus as $data){
-			$agcId = $data["farmers_id"];
+		// foreach($crsStatus as $data){
+		// 	$agcId = $data["farmers_id"];
 
-			return $agcId;
+		// 	return $agcId;
 
 			// $crsStatus = $data["CRC"];
 
@@ -278,7 +278,6 @@ class Application
 		return $result;
 
 	}
-
 
 	public static function getAgcFarmers(int $application_id){
 		$query = "SELECT * FROM  agc_application_kyc_farmers_data WHERE application_id= $agcId";
