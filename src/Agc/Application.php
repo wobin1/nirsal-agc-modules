@@ -237,7 +237,14 @@ class Application
 
 
 	public static function getAgcWithPendingFieldverification(){
-		$query = "SELECT * FROM agc_application_kyc_data WHERE field_verification_status = 0";
+		$query = "SELECT * FROM agc_application_kyc_data WHERE is_field_verification_status = 0";
+		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+		return $result;
+	}
+
+	public static function getAgcWithCompletedFieldVerification(){
+		$query = "SELECT * FROM agc_application_kyc_data WHERE is_field_verification_status = 1";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
 
 		return $result;
