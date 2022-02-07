@@ -242,12 +242,7 @@ class Application
 			
 	}
 
-		$data = implode($values, ',');
-	
-		$query = "UPDATE agc_application_farmers_data SET crc_status =".implode($values, ","). "WHERE application_id =".implode($values2. ",");
 
-		$result = DBConnectionFactory::getConnection()->exec($query);
-		return $result;
 
 	}
 
