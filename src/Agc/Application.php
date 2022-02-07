@@ -227,7 +227,7 @@ class Application
 
 	public static function updateKycData(array $crcStatus){
 		$values = [];
-		$values2 = []
+		$values2 = [];
 
 		foreach($farmerData as $data){
 			$agcId = $data["farmers_id"];
