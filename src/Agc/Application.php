@@ -244,7 +244,7 @@ class Application
 
 		$data = implode($values, ',');
 
-		print_r($data)
+		print_r($data);
 	
 		// $query = "UPDATE agc_application_farmers_data SET crc_status =".implode($values, ","). "WHERE application_id =".implode($values2);
 
