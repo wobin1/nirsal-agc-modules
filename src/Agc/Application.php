@@ -243,13 +243,7 @@ class Application
 		return $result;
 	}
 
-	public statuc function getAgcWithCompletedFieldverification(){
-		$query = "SELECT * FROM agc_application_kyc_data WHERE field_verification_status = 1";
-		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
-
-		return $result;
-
-	}
+	
 
 	public static function getAgcFarmers(int $application_id){
 		$query = "SELECT * FROM  agc_application_kyc_farmers_data WHERE application_id= $agcId";
