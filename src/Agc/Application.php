@@ -231,13 +231,15 @@ class Application
 
 		foreach($crsStatus as $data){
 			$agcId = $data["farmers_id"];
-			$crsStatus = $data["CRC"];
 
-			$values[] = "('$crsStatus')";
-			$values2[] = "($agcId)";
+			print_r($agcId);
+			// $crsStatus = $data["CRC"];
 
-			print_r($values);
-			print_r($values2);
+			// $values[] = "('$crsStatus')";
+			// $values2[] = "($agcId)";
+
+			// print_r($values);
+			// print_r($values2);
 
 			
 	}
