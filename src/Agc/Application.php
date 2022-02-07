@@ -244,8 +244,15 @@ class Application
 	}
 
 	public static function getAgcWithCompletedFieldVerification(){
-		$query = "SELECT * FROM agc_application_kyc_data WHERE is_field_verification_status_complete = 1";
+		$query = "SELECT * FROM agc_application_kyc_data WHERE is_field_verification_complete = 1";
 		$result = DBConnectionFactory::getConnection()->query($query)->fetchAll(\PDO::FETCH_ASSOC);
+
+		return $result;
+	}
+
+	public static function updateFieldVerificationStatus(int $agcId){
+		$query = "UPDATE agc_application_kyc_data SET is_field_verification_complete = 0 WHERE application_id = $agcId";
+		$result = DBConnectionFactory::getConnection()->exec($query);
 
 		return $result;
 	}
