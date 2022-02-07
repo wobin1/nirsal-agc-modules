@@ -230,8 +230,9 @@ class Application
 		$values2 = [];
 
 		foreach($crsStatus as $data){
-			print_r($data["farmers_id"]);
+			$agcId = $data["farmers_id"];
 
+			return $agcId;
 
 			// $crsStatus = $data["CRC"];
 
